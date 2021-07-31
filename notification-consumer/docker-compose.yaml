@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: swvl_consumer
+
+
+
+  consumer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:5000
+    depends_on:
+      - db
+
+
+
+networks:
+  default:
+    external:
+      name: rabbitmq_network
+
+

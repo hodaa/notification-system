@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+flask-marshmallow
+marshmallow_sqlalchemy
+marshmallow
+pymysql
+cryptography
+pytest
+Flask-Testing
+python-dotenv
+pika
+flask_restplus
