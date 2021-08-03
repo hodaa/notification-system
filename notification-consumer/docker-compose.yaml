@@ -7,7 +7,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: swvl_consumer
-
+    restart: always
+    cap_add:
+      - SYS_NICE
 
 
   consumer:

@@ -11,7 +11,9 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
     FLASK_ENV = os.getenv('ENVIRONMENT')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    RESTPLUS_MASK_SWAGGER= False
+    RESTPLUS_MASK_SWAGGER = False
+    CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL"),
+    CELERY_BACKEND_URL = os.environ.get("CELERY_BACKEND_URL"),
 
 
 class DevelopmentConfig(Config):

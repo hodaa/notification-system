@@ -9,7 +9,7 @@ load_dotenv(dotenv_path=env_path, verbose=True, override=True)
 
 config_name = os.getenv('ENVIRONMENT')
 app = create_app(config_name)
-db.create_all(app=app)
-if __name__ == '__main__':
 
+if __name__ == '__main__':
+    db.create_all(app=app)
     app.run(host='0.0.0.0')

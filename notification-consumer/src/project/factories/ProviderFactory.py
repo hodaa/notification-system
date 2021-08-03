@@ -1,3 +1,6 @@
+from project.strategies.EmailStrategy import EmailStrategy
+from project.strategies.SmsStrategy import SmsStrategy
+from project.strategies.PushNotificationStrategy import PushNotificationStrategy
 
 
 class ProviderFactory:
@@ -15,3 +18,7 @@ class ProviderFactory:
         return creator()
 
 
+factory = ProviderFactory()
+factory.register('EMAIL', EmailStrategy)
+factory.register('SMS', SmsStrategy)
+factory.register('PUSH_NOTIFICATION', PushNotificationStrategy)

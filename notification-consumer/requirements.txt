@@ -10,3 +10,5 @@ Flask-Testing
 python-dotenv
 pika
 flask_restplus
+celery
+firebase_admin

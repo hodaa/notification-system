@@ -40,7 +40,7 @@ def client(request):
 
 def test_hello(client):
     response = client.get('/')
-    assert b'Hello notifications service!' in response.data
+    assert b'I am producer notifications service!' in response.data
 
 
 def test_post_users(client):

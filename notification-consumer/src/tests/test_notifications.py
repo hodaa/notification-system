@@ -1,7 +1,7 @@
 from project.models import db
 from project import create_app
 from project.models.UserNotification import UserNotification
-from project.services.SmsSeervice import SmsService
+# from project.services.SmsSeervice import SmsService
 from flask import json
 
 import random
@@ -80,8 +80,8 @@ def test_get_notifications_empty(client):
     # assert result == []
     # db.session.rollback()
 
-
-def test_send_sms():
-    smsObj= SmsService()
-    smsObj.send()
+#
+# def test_send_sms():
+#     smsObj= SmsService()
+#     smsObj.send()
 

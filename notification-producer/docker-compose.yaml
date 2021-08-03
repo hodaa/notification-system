@@ -16,8 +16,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5000:5000
-#    depends_on:
-#      - db_producer
+    depends_on:
+      - db_producer
 
 
   rabbitmq:
@@ -32,6 +32,8 @@ services:
 networks:
   default:
     external:
-      name: rabbitmq_network
+      name: rabbitmq_network_2
+
+
 
 

@@ -1,6 +1,9 @@
 from datetime import datetime
 from project import db
 from project.models import ma
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 
 class UserNotification(db.Model):
@@ -19,4 +22,3 @@ class UserNotification(db.Model):
 class UserNotificationSchema(ma.SQLAlchemySchema):
     class Meta:
         fields = ("id", "title", "body")
-
