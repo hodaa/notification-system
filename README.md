@@ -26,8 +26,8 @@ we have two services that communicate vai Rabbit mq message broker
 
 ## Architecture
 
-* If you want  to add a new Data provider you can go to
-  `app/DataProvider/` and add new class extends HotelDataMapper class  and map name from your provider to system names.
+* If you want  to add a new  provider you can go to
+  `project/strategies/` and add new class extends Startegy class  and  register it in the factory `providerFactory` .
   
 
   
