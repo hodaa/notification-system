@@ -9,7 +9,7 @@ from celery import Celery
 import os
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 env_path = os.getcwd() + '/.env'
 load_dotenv(dotenv_path=env_path, verbose=True, override=True)
 config_name = os.getenv('ENVIRONMENT')

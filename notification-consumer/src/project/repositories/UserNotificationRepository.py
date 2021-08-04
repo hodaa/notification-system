@@ -7,7 +7,8 @@ from project.models.UserNotification import UserNotification
 
 class UserNotificationRepository:
     def get_by_user_id(self, user_id):
-        data = UserNotification.query.where(UserNotification.user_id == user_id).all()
+        data = UserNotification.query.where(UserNotification.user_id == user_id,
+                                            UserNotification.provider == 'PUSH_NOTIFICATION').all()
         schema = UserNotificationSchema(many=True)
         return jsonify({"notifications": schema.dump(data)})
 
