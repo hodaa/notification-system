@@ -3,7 +3,6 @@ Send Notification to customers via SMS or Email or Push notification.
 we have two services that communicate vai Rabbit mq message broker
 * First service called `notification-producer` that  insert data in DB and send message to RabbitMQ.
 * Second service called `notification-consumer` that listens to data in RabitMq and list All push notifications per user.
-# notification-producer
 
 `
 ## Installation
@@ -35,7 +34,7 @@ we have two services that communicate vai Rabbit mq message broker
 
 ## Design Pattern Used
 
-1- `Abstract Factory` pattern to encapsulate creation of the data provider object  from the business logic
+1- `Abstract Factory` pattern to encapsulate creation of the provider object  from the business logic
 
 2- `Reposiotory` pattern  to get data form datasource (Apis).
 
@@ -70,6 +69,7 @@ Run
 ## Tools
 * Python3.8
 * Rabbitmq
+* redis
 
 
 
