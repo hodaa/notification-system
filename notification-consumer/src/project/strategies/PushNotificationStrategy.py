@@ -1,10 +1,13 @@
-import logging
 from project.strategies.Strategy import Strategy
 from firebase_admin import messaging
-
+from project.services.RequestLimiter import RequestLimiter
+import os
 
 class PushNotificationStrategy(Strategy):
     def send_notification(self, notification, users):
+        limiter = RequestLimiter()
+        limiter.limit('push_limiter', os.getenv('PUSH_LIMITER'))
+
         registration_tokens = map(lambda user: user['token'], users)
 
         # See documentation on defining a message payload.

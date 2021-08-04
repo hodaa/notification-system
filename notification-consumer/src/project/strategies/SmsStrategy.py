@@ -1,12 +1,12 @@
 from project.strategies.Strategy import Strategy
-from project.repositories.UserNotificationRepository import UserNotificationRepository
-import logging
-
+from project.services.RequestLimiter import RequestLimiter
+import os
 
 class SmsStrategy(Strategy):
 
     def send_notification(self, notification, users):
-        tokens = map(lambda user: user['mobile'], users)
-        logging.info(list(tokens))
-        # mobile = user['mobile']
-        # logging.info(mobile)
+        limiter = RequestLimiter()
+        limiter.limit('sms_limiter', os.getenv('SMS_LIMITER'))
+
+        mobiles = map(lambda user: user['mobile'], users)
+        # send(mobiles,notification)

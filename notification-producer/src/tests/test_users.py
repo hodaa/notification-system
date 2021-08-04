@@ -30,7 +30,6 @@ def client(request):
 
     def teardown():
         print("teardown")
-        # db.drop_all()
 
     request.addfinalizer(teardown)
 

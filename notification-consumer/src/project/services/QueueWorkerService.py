@@ -1,3 +1,5 @@
+import logging
+
 import pika
 import json
 from project.strategies.Context import Context
@@ -11,6 +13,7 @@ from celery import Task
 
 
 class QueueWorkerService(Task):
+
     def start_rmq_connection(self):
         connection = pika.BlockingConnection(pika.ConnectionParameters(host='rabbitmq'))
         channel = connection.channel()

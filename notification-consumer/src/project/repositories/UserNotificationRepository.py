@@ -5,23 +5,11 @@ from project.database import db_session
 from project.models.UserNotification import UserNotification
 
 
-# # from project import create_app
-#
-# # app = create_app('development')
-# # app.app_context().push()
-# import logging
-#
-# logging.basicConfig(level=logging.DEBUG)
-
-
 class UserNotificationRepository:
     def get_by_user_id(self, user_id):
-        # logging.info(user_id)
-        # app.logger.info(user_id)
         data = UserNotification.query.where(UserNotification.user_id == user_id).all()
-        # logging.info(data)
         schema = UserNotificationSchema(many=True)
-        return jsonify({"users": schema.dump(data)})
+        return jsonify({"notifications": schema.dump(data)})
 
     def store(self, user_id, title, body, provider):
         notify = UserNotification(user_id=user_id, title=title, body=body, provider=provider)
@@ -39,4 +27,3 @@ class UserNotificationRepository:
             })
         db_session.bulk_insert_mappings(UserNotification, data)
         db_session.commit()
-

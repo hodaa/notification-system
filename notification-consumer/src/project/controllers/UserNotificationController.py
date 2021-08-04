@@ -1,4 +1,4 @@
-from flask import  make_response
+from flask import make_response
 from project.repositories.UserNotificationRepository import UserNotificationRepository
 from http import HTTPStatus
 

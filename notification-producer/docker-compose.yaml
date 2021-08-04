@@ -32,7 +32,7 @@ services:
 networks:
   default:
     external:
-      name: rabbitmq_network_2
+      name: rabbitmq_network
 
 
 

@@ -1,6 +1,8 @@
 # /instance/config.py
-
 import os
+from dotenv import load_dotenv
+env_path = os.getcwd() + '/.env'
+load_dotenv(dotenv_path=env_path, verbose=True, override=True)
 
 
 class Config(object):
@@ -14,18 +16,17 @@ class Config(object):
     RESTPLUS_MASK_SWAGGER = False
     CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL"),
     CELERY_BACKEND_URL = os.environ.get("CELERY_BACKEND_URL"),
+    REDIS_URL = os.environ.get("REDIS_URL"),
 
 
 class DevelopmentConfig(Config):
     """Configurations for Development."""
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@db:3306/swvl_consumer'
 
 
 class TestingConfig(Config):
     """Configurations for Testing, with a separate test database."""
     TESTING = True
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///swvl.db'
     DEBUG = True
 
@@ -33,7 +34,6 @@ class TestingConfig(Config):
 class ProductionConfig(Config):
     """Configurations for Production."""
     TESTING = False
-
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 

@@ -1,10 +1,17 @@
 from project.strategies.Strategy import Strategy
+from project.services.RequestLimiter import RequestLimiter
 import smtplib
 import os
 
 
+
 class EmailStrategy(Strategy):
+
     def send_notification(self, notification, users):
+
+        limiter = RequestLimiter()
+        limiter.limit('email_limiter', os.getenv('EMAIL_LIMITER'))
+
         receivers = map(lambda user: user['email'], users)
         sender = os.getenv('EMAIL_SENDER')
         message = notification['body']

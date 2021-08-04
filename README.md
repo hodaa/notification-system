@@ -1,29 +1,29 @@
-## Hotels 
-This is  an API that compare and sort a massive amount of data from different 
-sources and returns a JSON response that contains a list of
-hotel rooms (cheapest to most expensive).
+## Notification System 
+Send Notification to customers via SMS or Email or Push notification.
+we have two services that communicate vai Rabbit mq message broker
+* First service called `notification-producer` that  insert data in DB and send message to RabbitMQ.
+* Second service called `notification-consumer` that listens to data in RabitMq and list All push notifications per user.
+# notification-producer
 
+`
 ## Installation
-
+1 - go to `notification-producer`  folder then run
+* `docker network create rabbitmq_network`
 * `docker-compose up -d`
 
-From PHP image
-* `docker-compose exec php bash`
-    * `composer install`
-    * `php artisan key:generate`
+2- go to `notification-consumer` folder and then run
+* `docker-compose up -d`
 
 
 
-## Usage
+## Documentation
+1- notification-producer 
+  * http://localhost:5000/doc
 
-Hit this url using Get Method
-
-`http://localhost:8081/api/v1/hotels`
-
+2- notification-producer 
+ * http://localhost:4000/doc
 
 
-
-<br />
 
 ## Architecture
 
@@ -41,25 +41,36 @@ Hit this url using Get Method
 
 3- `Service` pattern I added all business logic in separate classes.
 
+4- `strategy` pattern for each provider that send notification 
+
 
 
 <br>
 
 
 ## Testing
-From PHP image
-* `docker-compose exec php bash`
+From  producer docker image
+* `docker-compose exec producer bash`
+
 
 Run
 
-    vendor/phpunit/bin
+    pytest
+
+From  producer docker image
+* `docker-compose exec consumer bash`
+
+
+Run
+
+    pytest
+
 
 
 ## Tools
-* PHP7.4
-* Laravel
-* Docker
-* phpunit
+* Python3.8
+* Rabbitmq
+
 
 
 

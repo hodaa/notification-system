@@ -12,3 +12,5 @@ pika
 flask_restplus
 celery
 firebase_admin
+Flask-Limiter
+redis

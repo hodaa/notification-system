@@ -21,7 +21,8 @@ services:
     depends_on:
       - db
 
-
+  redis:
+    image: redis
 
 networks:
   default:
